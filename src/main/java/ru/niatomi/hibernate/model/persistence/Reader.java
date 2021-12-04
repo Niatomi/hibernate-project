@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "author_table")
+@Table(name = "reader_table")
 @Getter
 @Setter
 @RequiredArgsConstructor

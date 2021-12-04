@@ -17,6 +17,9 @@
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
 
-        <mapping class="ru.rassafel.hibernate.ru.niatomi.hibernate.model.persistence.Student"/>
+        <mapping class="ru.niatomi.hibernate.model.persistence.Article"/>
+        <mapping class="ru.niatomi.hibernate.model.persistence.Author"/>
+        <mapping class="ru.niatomi.hibernate.model.persistence.Reader"/>
+        <mapping class="ru.niatomi.hibernate.model.persistence.Reader"/>
     </session-factory>
 </hibernate-configuration>
