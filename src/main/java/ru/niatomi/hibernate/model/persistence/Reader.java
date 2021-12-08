@@ -2,8 +2,7 @@ package ru.niatomi.hibernate.model.persistence;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "reader_table")
@@ -14,6 +13,8 @@ import javax.persistence.Table;
 @ToString
 public class Reader {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private Long id;
 
