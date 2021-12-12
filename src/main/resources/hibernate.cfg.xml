@@ -17,10 +17,10 @@
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
 
-<!--        <mapping class="ru.niatomi.hibernate.model.persistence.Article"/>-->
-<!--        <mapping class="ru.niatomi.hibernate.model.persistence.Author"/>-->
-<!--        <mapping class="ru.niatomi.hibernate.model.persistence.Reader"/>-->
-<!--        <mapping class="ru.niatomi.hibernate.model.persistence.Reader"/>-->
+<!--        <mapping class="ru.niatomi.hibernate.model.persistence.au.Article"/>-->
+<!--        <mapping class="ru.niatomi.hibernate.model.persistence.au.Author"/>-->
+<!--        <mapping class="ru.niatomi.hibernate.model.persistence.au.Reader"/>-->
+<!--        <mapping class="ru.niatomi.hibernate.model.persistence.au.Reader"/>-->
         <mapping class="ru.niatomi.hibernate.model.persistence.Student"/>
         <mapping class="ru.niatomi.hibernate.model.persistence.Address"/>
     </session-factory>
