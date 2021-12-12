@@ -12,21 +12,6 @@ public class Launcher {
 
     public static void main(String[] args) {
 
-        Launcher launcher = new Launcher();
-
-        Student student = new Student();
-        student.setFirstName("ya");
-        student.setLastName("balbes");
-
-        Address adress = new Address();
-        adress.setName("kolotushkina 2");
-
-//        student.setAdress(adress);
-//        launcher.saveUser(student);
-
-
     }
-
-
 
 }
