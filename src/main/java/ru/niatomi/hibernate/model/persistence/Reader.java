@@ -22,6 +22,8 @@ public class Reader {
 
     private String mail;
 
+    @ManyToOne
+    @JoinColumn(name = "article_id")
     private Article article;
 
 }

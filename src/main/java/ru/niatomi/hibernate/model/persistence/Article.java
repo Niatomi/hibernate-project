@@ -4,7 +4,6 @@ import lombok.*;
 import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
-
 @Entity
 @Table(name = "articles")
 @Getter

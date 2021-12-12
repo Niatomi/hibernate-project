@@ -24,6 +24,8 @@ public class Author {
 
     private LocalDate dateBirth;
 
+    @ManyToOne
+    @JoinColumn(name = "article_id")
     private Article article;
 
 }
