@@ -18,16 +18,12 @@ import static java.util.Objects.isNull;
 public class StudentDaoImpl implements StudentDao {
     @Override
     public Optional<Student> findById(Long id) {
-        try (Session session = SessionUtil.createSession()) {
-            Student student = session
-                    .createQuery("from Student u " +
-                            "where u.id = ?1", Student.class)
-                    .setParameter(1, id)
-                    .getSingleResult();
-            return Optional.of(student);
-        } catch (NoResultException ex) {
-            return Optional.empty();
-        }
+        Session session = SessionUtil.createSession();
+        Optional<Student> student = session
+                .createQuery("from Student u where u.id = " + id, Student.class)
+                .uniqueResultOptional();
+        session.close();
+        return student;
     }
 
     @Override
@@ -41,7 +37,7 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public Student save(Student student) {
-        System.out.println("Student before update = " + student);
+        System.out.println("Student before save = " + student);
         Session session = SessionUtil.createSession();
         Transaction transaction = session.beginTransaction();
 
@@ -51,7 +47,7 @@ public class StudentDaoImpl implements StudentDao {
 
         transaction.commit();
         session.close();
-        System.out.println("Student after update = " + student);
+        System.out.println("Student after save = " + student);
 
         return student;
     }
@@ -86,7 +82,7 @@ public class StudentDaoImpl implements StudentDao {
         }
         Student student = byId.get();
 
-        System.out.println("Student before update = " + student);
+
         Session session = SessionUtil.createSession();
         Transaction transaction = session.beginTransaction();
 
@@ -94,7 +90,7 @@ public class StudentDaoImpl implements StudentDao {
 
         transaction.commit();
         session.close();
-        System.out.println("Student after update = " + student);
+
 
         return byId;
     }
