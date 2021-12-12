@@ -1,12 +1,14 @@
-package ru.niatomi.hibernate.model.dao;
+package ru.niatomi.hibernate.model.dao.impl;
 
 import jdk.nashorn.internal.runtime.options.Option;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import ru.niatomi.hibernate.model.dao.StudentDao;
 import ru.niatomi.hibernate.model.persistence.Student;
 import ru.niatomi.hibernate.util.SessionUtil;
 
+import javax.persistence.NoResultException;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,12 +17,17 @@ import static java.util.Objects.isNull;
 @RequiredArgsConstructor
 public class StudentDaoImpl implements StudentDao {
     @Override
-    public Optional<Student> findById(Long key) {
-        Session session = SessionUtil.createSession();
-        Optional<Student> student = session.createQuery("from Student u where u.id = " + key, Student.class)
-                .uniqueResultOptional();
-        session.close();
-        return student;
+    public Optional<Student> findById(Long id) {
+        try (Session session = SessionUtil.createSession()) {
+            Student student = session
+                    .createQuery("from Student u " +
+                            "where u.id = ?1", Student.class)
+                    .setParameter(1, id)
+                    .getSingleResult();
+            return Optional.of(student);
+        } catch (NoResultException ex) {
+            return Optional.empty();
+        }
     }
 
     @Override
@@ -40,6 +47,7 @@ public class StudentDaoImpl implements StudentDao {
 
         session.save(student.getAddress());
         session.save(student);
+
 
         transaction.commit();
         session.close();
