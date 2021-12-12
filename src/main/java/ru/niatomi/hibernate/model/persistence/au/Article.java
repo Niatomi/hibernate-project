@@ -1,7 +1,6 @@
-package ru.niatomi.hibernate.model.persistence;
+package ru.niatomi.hibernate.model.persistence.au;
 
 import lombok.*;
-import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
 @Entity
