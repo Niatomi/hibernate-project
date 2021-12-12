@@ -6,21 +6,27 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "user_data")
+@Table(name = "app_user")
 @Getter
 @Setter
 @RequiredArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
-public class User {
+public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "first_name", length = 63,nullable = false)
     private String firstName;
 
+    @Column(name = "last_name", length = 63, nullable = false)
     private String lastName;
 
+    @Column(name = "birthday_date")
     private LocalDate birthday;
+
+    @OneToOne(optional = true)
+    private Address address;
 }
