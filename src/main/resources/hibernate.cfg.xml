@@ -4,8 +4,8 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.driver_class">net.sourceforge.jtds.jdbc.Driver</property>
-        <property name="connection.url">jdbc:jtds:sqlserver://localgost</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL10Dialect</property>
+        <property name="connection.driver_class">org.postgresql.Driver</property>
 
         <property name="connection.url">jdbc:postgresql://localhost:5432/postgres</property>
         <property name="connection.username">postgres</property>
@@ -17,9 +17,11 @@
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
 
-        <mapping class="ru.niatomi.hibernate.model.persistence.Article"/>
-        <mapping class="ru.niatomi.hibernate.model.persistence.Author"/>
-        <mapping class="ru.niatomi.hibernate.model.persistence.Reader"/>
-        <mapping class="ru.niatomi.hibernate.model.persistence.Reader"/>
+<!--        <mapping class="ru.niatomi.hibernate.model.persistence.Article"/>-->
+<!--        <mapping class="ru.niatomi.hibernate.model.persistence.Author"/>-->
+<!--        <mapping class="ru.niatomi.hibernate.model.persistence.Reader"/>-->
+<!--        <mapping class="ru.niatomi.hibernate.model.persistence.Reader"/>-->
+        <mapping class="ru.niatomi.hibernate.model.persistence.Student"/>
+        <mapping class="ru.niatomi.hibernate.model.persistence.Address"/>
     </session-factory>
 </hibernate-configuration>
