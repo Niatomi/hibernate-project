@@ -19,5 +19,5 @@ public class Address {
     private Long id;
 
     @Column(name = "street")
-    private String name;
+    private String address;
 }
