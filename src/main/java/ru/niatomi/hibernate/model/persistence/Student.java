@@ -16,7 +16,6 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "first_name", length = 63,nullable = false)
