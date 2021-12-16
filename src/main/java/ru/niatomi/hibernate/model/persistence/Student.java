@@ -14,6 +14,7 @@ import java.time.LocalDate;
 @ToString
 public class Student {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
