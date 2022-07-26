@@ -1,4 +1,4 @@
-package ru.niatomi.hibernate.model.persistence.au;
+package ru.niatomi.hibernate.model.persistence;
 
 import lombok.*;
 
