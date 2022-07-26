@@ -18,13 +18,19 @@ public class Author {
     @EqualsAndHashCode.Include
     private Long id;
 
+    @Column(name = "first_name", length = 32)
+    @EqualsAndHashCode.Include
     private String firstName;
 
+    @Column(name = "second_name", length = 32)
+    @EqualsAndHashCode.Include
     private String secondName;
 
+    @EqualsAndHashCode.Include
     private LocalDate dateBirth;
 
-    @ManyToOne
+    @OneToMany
+    @ToString.Exclude
     @JoinColumn(name = "article_id")
     private Article article;
 

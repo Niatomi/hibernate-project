@@ -3,6 +3,7 @@ package ru.niatomi.hibernate.model.persistence;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "reader_table")
@@ -18,12 +19,21 @@ public class Reader {
     @EqualsAndHashCode.Include
     private Long id;
 
-    private String name;
+    @Column(name = "first_name", length = 32)
+    @EqualsAndHashCode.Include
+    private String firstName;
 
+    @Column(name = "second_name", length = 32)
+    @EqualsAndHashCode.Include
+    private String secondName;
+
+    @EqualsAndHashCode.Include
+    @Column(name = "mail", length = 32)
     private String mail;
 
-    @ManyToOne
-    @JoinColumn(name = "article_id")
-    private Article article;
+    @ManyToMany
+    @ToString.Exclude
+    private List<Article> article;
+
 
 }
