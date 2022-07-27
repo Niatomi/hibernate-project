@@ -2,13 +2,17 @@ package ru.niatomi.hibernate.model.dao.impl;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import ru.niatomi.hibernate.model.dao.ArticleDao;
 import ru.niatomi.hibernate.model.dao.ReaderDao;
+import ru.niatomi.hibernate.model.exceptions.ArticlesLimitException;
 import ru.niatomi.hibernate.model.exceptions.NotFoundException;
+import ru.niatomi.hibernate.model.persistence.Article;
 import ru.niatomi.hibernate.model.persistence.Reader;
 import ru.niatomi.hibernate.util.SessionUtil;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * @author niatomi
@@ -95,5 +99,36 @@ public class ReaderDaoImpl implements ReaderDao {
 
             return byId;
         }
+    }
+
+    @Override
+    public boolean addArticle(Article article, Reader reader) {
+        try (Session session = SessionUtil.createSession()) {
+            int numberOfArticles = session
+                    .createNativeQuery("SELECT count(*) FROM reader_table_articles_tables where reader_id=?1", Integer.class)
+                    .setParameter(1, reader.getId())
+                    .executeUpdate();
+
+            if (numberOfArticles >= 10) {
+                throw new ArticlesLimitException();
+            }
+
+            Transaction transaction = session.beginTransaction();
+
+            session.createNativeQuery("insert into reader_table_articles_tables values(?1, ?2)")
+                    .setParameter(1, reader.getId())
+                    .setParameter(2, article.getId())
+                    .executeUpdate();
+
+            session.createNativeQuery("insert into articles_tables_reader_table values(?1, ?2)")
+                    .setParameter(1, article.getId())
+                    .setParameter(2, reader.getId())
+                    .executeUpdate();
+
+            transaction.commit();
+
+            return true;
+        }
+
     }
 }
