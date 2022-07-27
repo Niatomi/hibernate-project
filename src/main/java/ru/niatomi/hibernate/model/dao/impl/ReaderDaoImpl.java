@@ -12,7 +12,7 @@ import java.util.Optional;
 
 /**
  * @author niatomi
- * @apiNote All methods implemented via native sql
+ * @implNote  All methods implemented via native sql
  */
 public class ReaderDaoImpl implements ReaderDao {
     @Override

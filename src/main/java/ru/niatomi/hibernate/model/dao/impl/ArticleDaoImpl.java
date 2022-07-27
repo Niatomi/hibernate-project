@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * @author niatomi
- * @apiNote all methods implemented via JPQL
+ * @implNote  all methods implemented via JPQL
  */
 public class ArticleDaoImpl implements ArticleDao {
     @Override
