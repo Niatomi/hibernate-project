@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * @author niatomi
- * @implNote
+ * @implNote finding methods implemented via Criteria API
  */
 public class AuthorDaoImpl implements AuthorDao {
     @Override
