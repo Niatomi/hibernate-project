@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "author_table")
@@ -32,6 +33,6 @@ public class Author {
     @OneToMany
     @ToString.Exclude
     @JoinColumn(name = "article_id")
-    private Article article;
+    private List<Article> article;
 
 }
