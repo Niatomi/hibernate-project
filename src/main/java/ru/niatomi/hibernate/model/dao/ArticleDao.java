@@ -10,6 +10,6 @@ import java.util.List;
  */
 public interface ArticleDao extends GenericDao<Article, Long>{
 
-    List<Author> getArticlesByStartsSecondNameOfAuthor(String secondName);
+    List<Article> getArticlesByStartsSecondNameOfAuthor(String secondName);
 
 }
