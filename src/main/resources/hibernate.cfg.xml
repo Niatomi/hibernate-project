@@ -17,9 +17,7 @@
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
 
-        <mapping class="ru.niatomi.hibernate.model.persistence.Article"/>
-        <mapping class="ru.niatomi.hibernate.model.persistence.Author"/>
-        <mapping class="ru.niatomi.hibernate.model.persistence.Reader"/>
+        <mapping package="ru.niatomi.hibernate.model.persistence"/>
 
     </session-factory>
 </hibernate-configuration>
