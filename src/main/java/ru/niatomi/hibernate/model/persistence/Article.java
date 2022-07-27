@@ -6,19 +6,23 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "articles")
+@Table(name = Article.ARTICLE_TABLE_NAME)
 @Getter
 @Setter
 @RequiredArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
 public class Article {
+
+    public static final String ARTICLE_TABLE_NAME = "articles_tables";
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private Long id;
 
-    @Column(name = "name", length = 63, nullable = false)
+    @Column(name = "title", length = 63, nullable = false)
     @EqualsAndHashCode.Include
     private String title;
 
