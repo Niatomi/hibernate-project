@@ -30,7 +30,7 @@ public class Author {
     @EqualsAndHashCode.Include
     private LocalDate dateBirth;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @ToString.Exclude
     @JoinColumn(name = "article_id")
     private List<Article> article;

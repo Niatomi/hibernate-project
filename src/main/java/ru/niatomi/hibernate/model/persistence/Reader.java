@@ -36,7 +36,7 @@ public class Reader {
     @Column(name = READER_TABLE_MAIL, length = 32)
     private String mail;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @ToString.Exclude
     private List<Article> article;
 

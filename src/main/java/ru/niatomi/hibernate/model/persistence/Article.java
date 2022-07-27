@@ -26,11 +26,11 @@ public class Article {
     @EqualsAndHashCode.Include
     private String title;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @ToString.Exclude
     private List<Reader> readers;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @ToString.Exclude
     private Author author;
 
