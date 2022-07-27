@@ -37,7 +37,13 @@ public class ArticleDaoImpl implements ArticleDao {
     }
 
     @Override
-    public List<Author> getArticlesByStartsSecondNameOfAuthor(String secondName) {
-        return null;
+    public List<Article> getArticlesByStartsSecondNameOfAuthor(String secondName) {
+        try (Session session = SessionUtil.createSession()) {
+            return session
+                    .createQuery("select a from Article a where a.author.secondName like ?1", Article.class)
+                    .setParameter(1, secondName)
+                    .getResultList();
+        }
+
     }
 }
