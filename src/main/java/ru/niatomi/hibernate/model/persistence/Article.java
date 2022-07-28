@@ -3,6 +3,7 @@ package ru.niatomi.hibernate.model.persistence;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -25,6 +26,10 @@ public class Article {
     @Column(name = "title", length = 63, nullable = false)
     @EqualsAndHashCode.Include
     private String title;
+
+    @Column(name = "date_of_writing", length = 63, nullable = false)
+    @EqualsAndHashCode.Include
+    private LocalDate dateOfEndWriting;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @ToString.Exclude
